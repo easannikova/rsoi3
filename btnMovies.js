@@ -29,7 +29,7 @@ request.onload = function () {
       card.setAttribute('id', 'card');
 
       let h1 = document.createElement('h1');
-      h1.textContent = movie.id+'. '+movie.title;
+      h1.textContent = movie.title;
 
       let p1 = document.createElement('p');
       p1.textContent = 'Year: '+`${movie.year}`;
@@ -39,7 +39,8 @@ request.onload = function () {
       p3.textContent = 'FC: '+`${movie.FC}`;
       let p4 = document.createElement('p');
       p4.textContent = 'Rating: '+`${movie.rating}`;
-
+      /*let p5 = document.createElement('p');
+      p5.textContent = 'Genre: '+`${movie.genre}`;*/
 
       container_movies.appendChild(card);
       card.appendChild(h1);
@@ -47,7 +48,7 @@ request.onload = function () {
       card.appendChild(p2);
       card.appendChild(p3);
       card.appendChild(p4);
-
+      //card.appendChild(p5);
     });
   } else {
     let errorMessage = document.createElement('marquee');

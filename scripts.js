@@ -24,7 +24,7 @@ request.onload = function () {
       card.setAttribute('id', 'card');
 
       let h1 = document.createElement('h1');
-      h1.textContent = movie.id+'. '+movie.title;
+      h1.textContent = movie.title;
 
       let p1 = document.createElement('p');
       p1.textContent = 'Year: '+`${movie.year}`;

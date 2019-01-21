@@ -1,6 +1,6 @@
 function btnHalls()
 {
-  let list = ['movies', 'halls', 'seanses']
+  let list = ['movies', 'halls', 'halls']
   let app = document.getElementById('root');
   for (i=0; i < app.childElementCount; i++)
   {
@@ -9,7 +9,10 @@ function btnHalls()
     if (text != 'movies' && text != 'halls' && text != 'seanses')
       app.childNodes[i].remove();
     else
-    app.childNodes[i].textContent = 'halls';
+    {  app.childNodes[i].textContent = 'halls';
+  console.log(text);
+
+  }
   }
   let container_halls = document.createElement('div');
   container_halls.setAttribute('class', 'container_halls');
@@ -31,14 +34,18 @@ function btnHalls()
         card.setAttribute('id', 'card');
 
         let h1 = document.createElement('h1');
-        h1.textContent = hall.id+'. Hall #'+hall.number;
+        h1.textContent = 'Hall №'+hall.number;
 
+        let p2 = document.createElement('p');
+        p2.textContent = 'Floor: '+`${hall.floor}`;
         let p1 = document.createElement('p');
-        p1.textContent = 'Floor: '+`${hall.floor}`;
-
+        p1.textContent = 'Seats count: '+`${hall.seats_count}`;
+  
         card.appendChild(h1);
+        card.appendChild(p2);
         card.appendChild(p1);
         container_halls.appendChild(card);
+
         app.appendChild(container_halls);
 
         console.log(app)
@@ -51,6 +58,5 @@ function btnHalls()
     }
   }
 
-  console.log('gggggggggggggg'+app)
   request.send();
 }

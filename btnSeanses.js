@@ -31,13 +31,23 @@ function btnSeanses()
         card.setAttribute('id', 'card');
         
         let h1 = document.createElement('h1');
-        h1.textContent = seanse.id+seanse.number;
+        h1.textContent = "Seanse №"+seanse.id;
 
         let p1 = document.createElement('p');
-        p1.textContent = 'Movie: '+`${seanse.movie_title}`;
-        
+        p1.textContent = 'Movie title: '+`${seanse.movie_title}`;
+        let p2 = document.createElement('p');
+        p2.textContent = 'Hall number: '+`${seanse.hall_number}`;
+        let p3 = document.createElement('p');
+        p3.textContent = 'Date: '+`${seanse.date}`;
+        let p4 = document.createElement('p');
+        p4.textContent = 'Time: '+`${seanse.time}`;
+  
         card.appendChild(h1);
         card.appendChild(p1);
+        card.appendChild(p2);
+        card.appendChild(p3);
+        card.appendChild(p4);
+        
         container_seanses.appendChild(card);
       });
     app.appendChild(container_seanses);
@@ -48,7 +58,5 @@ function btnSeanses()
       app.appendChild(errorMessage);
     }
   }
-  app.appendChild(container_seanses);
-
   request.send();
 }

@@ -37,6 +37,12 @@ function AddMovieForm()
   rating.style.position = 'fixed';
   rating.textContent = 'rating';
 
+  /*let genre = document.createElement('input');
+  genre.style.left = 200 + 'px';
+  genre.style.top = 470 + 'px';
+  genre.style.position = 'fixed';
+  genre.textContent = 'genre';*/
+
   let h_title = document.createElement('p');
   h_title.textContent = 'Title';
   let h_country = document.createElement('p');
@@ -47,6 +53,8 @@ function AddMovieForm()
   h_FC.textContent = 'FC';
   let h_rating = document.createElement('p');
   h_rating.textContent = 'Rating';
+  //let h_genre = document.createElement('p');
+  //h_genre.textContent = 'Genre';
 
   card.appendChild(h1);
   card.appendChild(title);
@@ -54,12 +62,14 @@ function AddMovieForm()
   card.appendChild(year);
   card.appendChild(FC);
   card.appendChild(rating);
+  //card.appendChild(genre);
 
   card.appendChild(h_title);
   card.appendChild(h_country);
   card.appendChild(h_year);
   card.appendChild(h_FC);
   card.appendChild(h_rating);
+  //card.appendChild(h_genre);
         
   app.appendChild(card);
 
@@ -76,22 +86,22 @@ function AddHallForm()
   card.setAttribute('id', 'card');
   let h1 = document.createElement('h1');
   h1.textContent = "New hall: ";
-  let title = document.createElement('input');
-  title.style.left = 200 + 'px';
-  title.style.top = 170 + 'px';
-  title.style.position = 'fixed';
-  let country = document.createElement('input');
-  country.style.left = 200 + 'px';
-  country.style.top = 230 + 'px';
-  country.style.position = 'fixed';
-  let year = document.createElement('input');
-  year.style.left = 200 + 'px';
-  year.style.top = 290 + 'px';
-  year.style.position = 'fixed';
-  let FC = document.createElement('input');
-  FC.style.left = 200 + 'px';
-  FC.style.top = 350 + 'px';
-  FC.style.position = 'fixed';
+  let number = document.createElement('input');
+  number.style.left = 200 + 'px';
+  number.style.top = 170 + 'px';
+  number.style.position = 'fixed';
+  let floor = document.createElement('input');
+  floor.style.left = 200 + 'px';
+  floor.style.top = 230 + 'px';
+  floor.style.position = 'fixed';
+  let seats_count = document.createElement('input');
+  seats_count.style.left = 200 + 'px';
+  seats_count.style.top = 290 + 'px';
+  seats_count.style.position = 'fixed';
+  let is3d = document.createElement('input');
+  is3d.style.left = 200 + 'px';
+  is3d.style.top = 350 + 'px';
+  is3d.style.position = 'fixed';
 
   let h_title = document.createElement('p');
   h_title.textContent = 'Number';
@@ -103,10 +113,10 @@ function AddHallForm()
   h_FC.textContent = 'Seats count';
 
   card.appendChild(h1);
-  card.appendChild(title);
-  card.appendChild(country);
-  card.appendChild(year);
-  card.appendChild(FC);
+  card.appendChild(number);
+  card.appendChild(floor);
+  card.appendChild(seats_count);
+  card.appendChild(is3d);
 
   card.appendChild(h_title);
   card.appendChild(h_country);
