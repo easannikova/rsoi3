@@ -9,10 +9,7 @@ function btnHalls()
     if (text != 'movies' && text != 'halls' && text != 'seanses')
       app.childNodes[i].remove();
     else
-    {  app.childNodes[i].textContent = 'halls';
-  console.log(text);
-
-  }
+      app.childNodes[i].textContent = 'halls';
   }
   let container_halls = document.createElement('div');
   container_halls.setAttribute('class', 'container_halls');
@@ -25,7 +22,6 @@ function btnHalls()
 
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
-    console.log(data['halls']);
     data = data['halls'];
     if (request.status >= 200 && request.status < 400) {
       data.forEach(hall => {
@@ -40,16 +36,17 @@ function btnHalls()
         p2.textContent = 'Floor: '+`${hall.floor}`;
         let p1 = document.createElement('p');
         p1.textContent = 'Seats count: '+`${hall.seats_count}`;
+        let p3 = document.createElement('p');
+        p3.textContent = '3D: '+`${hall.is3d}`;
   
         card.appendChild(h1);
         card.appendChild(p2);
         card.appendChild(p1);
+        card.appendChild(p3);
+
         container_halls.appendChild(card);
 
         app.appendChild(container_halls);
-
-        console.log(app)
-        
       });
     } else {
       let errorMessage = document.createElement('marquee');

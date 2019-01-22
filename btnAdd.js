@@ -179,9 +179,9 @@ function AddSeanseForm()
         
   app.appendChild(card);
 
-  let btnAdd = document.getElementById('btnAdd');
+  let btnAdd = document.getElementById('btnOK');
   btn.style.display = 'none';
-  let btnOK = document.getElementById('btnOK');
+  let btnOK = document.getElementById('btnAdd');
   btn.style.display = 'inline-block';
 }
 
