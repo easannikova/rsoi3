@@ -14,6 +14,15 @@ function btnMovies()
 let container_movies = document.createElement('div');
 container_movies.setAttribute('class', 'container_movies');
 
+let btnDelete = document.getElementById('btnDelete');
+btnDelete.style.display = 'none';
+let btnSave = document.getElementById('btnSave');
+btnSave.style.display = 'none';
+let btnAdd = document.getElementById('btnAdd');
+btnAdd.style.display = 'inline-block';
+let btnOK = document.getElementById('btnOK');
+btnOK.style.display = 'none';
+
 var request = new XMLHttpRequest();
 
 request.open('GET', 'http://localhost:5000/api/1.0/movies', true);

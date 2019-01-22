@@ -6,6 +6,10 @@ let app = document.getElementById('root');
 let container_movies = document.createElement('div');
 container_movies.setAttribute('class', 'container_movies');
 let btn = document.getElementById('btnOK');
+let btnDelete = document.getElementById('btnDelete');
+btnDelete.style.display = 'none';
+let btnSave = document.getElementById('btnSave');
+btnSave.style.display = 'none';
 
 btn.style.display = 'none';
 document.getElementById('btnOK').style.display = 'none';

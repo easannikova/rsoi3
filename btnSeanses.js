@@ -15,6 +15,16 @@ function btnSeanses()
   let container_seanses = document.createElement('div');
   container_seanses.setAttribute('class', 'container_seanses');
 
+
+  let btnDelete = document.getElementById('btnDelete');
+  btnDelete.style.display = 'none';
+  let btnSave = document.getElementById('btnSave');
+  btnSave.style.display = 'none';
+  let btnAdd = document.getElementById('btnAdd');
+  btnAdd.style.display = 'inline-block';
+  let btnOK = document.getElementById('btnOK');
+  btnOK.style.display = 'none';
+
   var request = new XMLHttpRequest();
 
   request.open('GET', 'http://localhost:5002/api/1.0/seanses', true);
@@ -45,7 +55,7 @@ function btnSeanses()
         let btnEdit = document.createElement('div');
         btnEdit.setAttribute('class', 'btnEdit');
         btnEdit.setAttribute('id', 'btnEdit'+i.toString());
-        btnEdit.setAttribute('onclick', 'EditMovie()');
+        btnEdit.setAttribute('onclick', 'EditSeanse()');
         btnEdit.innerHTML = 'Edit';
         btnEdit.style.top = card.style.top + 400+'px';
         let left = 200+240*(i-1);

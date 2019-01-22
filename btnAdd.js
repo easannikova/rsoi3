@@ -201,7 +201,10 @@ function btnAdd()
     else
       page = app.childNodes[i].textContent;
   }
-  
+  let btnDelete = document.getElementById('btnDelete');
+  btnDelete.style.display = 'inline-block';
+  let btnSave = document.getElementById('btnSave');
+  btnSave.style.display = 'inline-block';
   switch (page)
   {
     case 'movies':

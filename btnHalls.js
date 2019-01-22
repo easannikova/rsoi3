@@ -17,6 +17,14 @@ function btnHalls()
 
   var request = new XMLHttpRequest();
 
+  let btnDelete = document.getElementById('btnDelete');
+  btnDelete.style.display = 'none';
+  let btnSave = document.getElementById('btnSave');
+  btnSave.style.display = 'none';
+  let btnAdd = document.getElementById('btnAdd');
+  btnAdd.style.display = 'inline-block';
+  let btnOK = document.getElementById('btnOK');
+  btnOK.style.display = 'none';
   request.open('GET', 'http://localhost:5001/api/1.0/halls', true);
   request.onload = function () {
 
@@ -43,7 +51,7 @@ function btnHalls()
         let btnEdit = document.createElement('div');
         btnEdit.setAttribute('class', 'btnEdit');
         btnEdit.setAttribute('id', 'btnEdit'+i.toString());
-        btnEdit.setAttribute('onclick', 'EditMovie()');
+        btnEdit.setAttribute('onclick', 'EditHall()');
         btnEdit.innerHTML = 'Edit';
         btnEdit.style.top = card.style.top + 300+'px';
         let left = 260+300*(i-1);
