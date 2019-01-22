@@ -1,4 +1,4 @@
-function AddMovieForm()
+function AddMovieForm(myh1)
 {
   let card = document.createElement('div');
   card.setAttribute('class', 'card');
@@ -205,13 +205,13 @@ function btnAdd()
   switch (page)
   {
     case 'movies':
-      AddMovieForm();
+      AddMovieForm("New movie: ");
       break;
     case 'halls':
-      AddHallForm();
+      AddHallForm("New hall: ");
       break;
     case 'seanses':
-      AddSeanseForm();
+      AddSeanseForm("New seanse:");
       break;
 
   }

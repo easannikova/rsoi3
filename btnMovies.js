@@ -19,6 +19,7 @@ var request = new XMLHttpRequest();
 request.open('GET', 'http://localhost:5000/api/1.0/movies', true);
 request.onload = function () {
 
+  let i = 1;
   // Begin accessing JSON data here
   var data = JSON.parse(this.response);
   data = data['movies'];
@@ -42,13 +43,23 @@ request.onload = function () {
       /*let p5 = document.createElement('p');
       p5.textContent = 'Genre: '+`${movie.genre}`;*/
 
+      let btnEdit = document.createElement('div');
+      btnEdit.setAttribute('class', 'btnEdit');
+      btnEdit.setAttribute('id', 'btnEdit'+i.toString());
+      btnEdit.setAttribute('onclick', 'EditMovie()');
+      btnEdit.innerHTML = 'Edit';
+      btnEdit.style.top = card.style.top + 350+'px';
+      let left = 200+240*(i-1);
+      btnEdit.style.left = card.style.left + left+'px';
+      i+=1;
+
       container_movies.appendChild(card);
       card.appendChild(h1);
       card.appendChild(p1);
       card.appendChild(p2);
       card.appendChild(p3);
       card.appendChild(p4);
-      //card.appendChild(p5);
+      card.appendChild(btnEdit);
     });
   } else {
     let errorMessage = document.createElement('marquee');

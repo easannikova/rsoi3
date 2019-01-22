@@ -1,3 +1,6 @@
+//flex-wrap: wrap;
+
+
 let app = document.getElementById('root');
 
 let container_movies = document.createElement('div');
@@ -14,6 +17,7 @@ request.onload = function () {
   page.setAttribute('value', 'movies');
   app.appendChild(page);
   page.textContent = 'movies';
+  i = 1;
   // Begin accessing JSON data here
   var data = JSON.parse(this.response);
   data = data['movies'];
@@ -22,6 +26,16 @@ request.onload = function () {
       let card = document.createElement('div');
       card.setAttribute('class', 'card');
       card.setAttribute('id', 'card');
+
+      let btnEdit = document.createElement('div');
+      btnEdit.setAttribute('class', 'btnEdit');
+      btnEdit.setAttribute('id', 'btnEdit'+i.toString());
+      btnEdit.setAttribute('onclick', 'EditMovie()');
+      btnEdit.innerHTML = 'Edit';
+      btnEdit.style.top = card.style.top + 350+'px';
+      let left = 200+240*(i-1);
+      btnEdit.style.left = card.style.left + left+'px';
+      i+=1;
 
       let h1 = document.createElement('h1');
       h1.textContent = movie.title;
@@ -42,6 +56,9 @@ request.onload = function () {
       card.appendChild(p2);
       card.appendChild(p3);
       card.appendChild(p4);
+      card.appendChild(btnEdit);
+      console.log(card);
+
     });
   } else {
     let errorMessage = document.createElement('marquee');

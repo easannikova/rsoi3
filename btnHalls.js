@@ -20,6 +20,7 @@ function btnHalls()
   request.open('GET', 'http://localhost:5001/api/1.0/halls', true);
   request.onload = function () {
 
+  let i = 1;
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
     data = data['halls'];
@@ -38,11 +39,22 @@ function btnHalls()
         p1.textContent = 'Seats count: '+`${hall.seats_count}`;
         let p3 = document.createElement('p');
         p3.textContent = '3D: '+`${hall.is3d}`;
+
+        let btnEdit = document.createElement('div');
+        btnEdit.setAttribute('class', 'btnEdit');
+        btnEdit.setAttribute('id', 'btnEdit'+i.toString());
+        btnEdit.setAttribute('onclick', 'EditMovie()');
+        btnEdit.innerHTML = 'Edit';
+        btnEdit.style.top = card.style.top + 300+'px';
+        let left = 260+300*(i-1);
+        btnEdit.style.left = card.style.left + left+'px';
+        i+=1;
   
         card.appendChild(h1);
         card.appendChild(p2);
         card.appendChild(p1);
         card.appendChild(p3);
+        card.appendChild(btnEdit);
 
         container_halls.appendChild(card);
 

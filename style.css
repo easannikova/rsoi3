@@ -98,6 +98,21 @@ html {
   border-radius: 12px;
 }
 
+.btnEdit {
+  background-color:	#98FB98;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  position: absolute;
+  
+  width: 60px;
+  height: 40px;
+  border-radius: 12px;
+}
+
 h1 {
   text-align: center;
   padding: 1.5rem 2.5rem;
@@ -123,7 +138,7 @@ input[type=text]{
 }
 
 .mypage{
-  visibility: hidden;
+  display: none;
 }
 
 p {
@@ -133,16 +148,17 @@ p {
 
 .container_movies {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .container_halls {
   display: flex;
-  flex-wrap: wrap;
 }
 .container_seanses {
   display: flex;
-  flex-wrap: wrap;
+}
+
+.container_edit {
+  display: flex;
 }
 
 .card {
@@ -151,12 +167,7 @@ p {
   border-radius: 12px;
   overflow: hidden;
   transition: all .2s linear;
-  align-items: center;
-}
-
-.card:hover {
-  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
-  transform: translate3D(0, -2px, 0);
+  align-items: left;
 }
 
 @media screen and (min-width: 600px) {

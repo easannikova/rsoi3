@@ -9,7 +9,7 @@ function btnSeanses()
     if (text != 'movies' && text != 'halls' && text != 'seanses')
       app.childNodes[i].remove();
     else
-    app.childNodes[i].textContent = 'seanses';
+      app.childNodes[i].textContent = 'seanses';
   }
 
   let container_seanses = document.createElement('div');
@@ -20,9 +20,9 @@ function btnSeanses()
   request.open('GET', 'http://localhost:5002/api/1.0/seanses', true);
   request.onload = function () {
 
+    let i = 1;
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
-    console.log(data['seanses']);
     data = data['seanses'];
     if (request.status >= 200 && request.status < 400) {
       data.forEach(seanse => {
@@ -41,12 +41,23 @@ function btnSeanses()
         p3.textContent = 'Date: '+`${seanse.date}`;
         let p4 = document.createElement('p');
         p4.textContent = 'Time: '+`${seanse.time}`;
+
+        let btnEdit = document.createElement('div');
+        btnEdit.setAttribute('class', 'btnEdit');
+        btnEdit.setAttribute('id', 'btnEdit'+i.toString());
+        btnEdit.setAttribute('onclick', 'EditMovie()');
+        btnEdit.innerHTML = 'Edit';
+        btnEdit.style.top = card.style.top + 400+'px';
+        let left = 200+240*(i-1);
+        btnEdit.style.left = card.style.left + left+'px';
+        i+=1;
   
         card.appendChild(h1);
         card.appendChild(p1);
         card.appendChild(p2);
         card.appendChild(p3);
         card.appendChild(p4);
+        card.appendChild(btnEdit);
         
         container_seanses.appendChild(card);
       });
