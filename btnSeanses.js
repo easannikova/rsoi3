@@ -57,9 +57,9 @@ function btnSeanses()
         btnEdit.setAttribute('id', 'btnEdit'+i.toString());
         btnEdit.setAttribute('onclick', 'EditSeanse()');
         btnEdit.innerHTML = 'Edit';
-        btnEdit.style.top = card.style.top + 400+'px';
-        let left = 200+240*(i-1);
-        btnEdit.style.left = card.style.left + left+'px';
+        app.setAttribute('data-id', i);
+        // btnEdit.style.top = card.style.top + 400+'px';
+        // btnEdit.style.left = card.style.left + left+'px';
         i+=1;
   
         card.appendChild(h1);

@@ -6,10 +6,27 @@ function buttonVisibility()
   btn.style.display = 'none';
 }
 
-function EditMovie()
+function SaveMovie()
 {
-  console.log("delete");
-  AddMovieForm("Movie ");
+  let app = document.getElementById('root');
+  let row = [];
+
+  for (i=0; i < app.childElementCount; i++)
+  {
+    let card = app.childNodes[i];
+
+    let params = card.childNodes;
+    let j = 0;
+    for (i=0; i < card.childElementCount; i++)
+    {
+      let value = params[i].value;
+      if(value != undefined) //params[i].textContent;
+      {
+        row[j] = value;
+        j++;
+      }
+    }
+  }
   //alert("sdf");
   /*let app = document.getElementById('root');
 
@@ -137,7 +154,7 @@ function PutSeanseForm()
   btnSeanses();
 }
 
-function btnOK(url)
+function btnSave()
 {
   for (i=0; i < app.childElementCount; i++)
   {

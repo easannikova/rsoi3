@@ -353,7 +353,7 @@ function PutSeanseForm()
   btnSeanses();
 }
 
-function btnOK(url)
+function btnOK()
 {
   for (i=0; i < app.childElementCount; i++)
   {

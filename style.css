@@ -30,6 +30,7 @@ html {
   left: 370px;
   top: 850px;
   border-radius: 12px;
+  cursor: pointer;
 }
 #btnSeanses {
   background-color:		#9370DB;
@@ -46,6 +47,7 @@ html {
   left: 200px;
   top: 850px;
   border-radius: 12px;
+  cursor: pointer;
 }
 #btnHalls {
   background-color:	#9370DB;
@@ -62,6 +64,7 @@ html {
   left: 60px;
   top: 850px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 #btnAdd {
@@ -79,6 +82,7 @@ html {
   left: 1130px;
   top: 850px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 #btnOK {
@@ -95,7 +99,7 @@ html {
   position: absolute;
   left: 1130px;
   top: 850px;
-  border-radius: 12px;
+  cursor: pointer;  
 }
 
 .btnEdit {
@@ -107,9 +111,11 @@ html {
   font-size: 16px;
   margin: 4px 2px;
   position: absolute;
-  
-  left: 1130px;
-  top: 850px;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  /* left: 1130px;
+  top: 850px; */
   border-radius: 12px;
   width: 50px;
   height: 30px; 
@@ -124,7 +130,7 @@ html {
   font-size: 16px;
   margin: 4px 2px;
   position: absolute;
-  
+  cursor: pointer; 
   left: 960px;
   top: 500px;
   width: 100px;
@@ -141,7 +147,7 @@ html {
   font-size: 16px;
   margin: 4px 2px;
   position: absolute;
-  
+  cursor: pointer;  
   width: 100px;
   height: 60px;
   left: 1130px;
@@ -204,6 +210,7 @@ p {
   overflow: hidden;
   transition: all .2s linear;
   align-items: left;
+  position: relative;
 }
 
 @media screen and (min-width: 600px) {

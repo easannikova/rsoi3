@@ -216,6 +216,5 @@ function btnAdd()
     case 'seanses':
       AddSeanseForm("New seanse:");
       break;
-
   }
 }

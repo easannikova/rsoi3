@@ -52,10 +52,9 @@ function btnHalls()
         btnEdit.setAttribute('class', 'btnEdit');
         btnEdit.setAttribute('id', 'btnEdit'+i.toString());
         btnEdit.setAttribute('onclick', 'EditHall()');
+        app.setAttribute('data-id', i);
+
         btnEdit.innerHTML = 'Edit';
-        btnEdit.style.top = card.style.top + 300+'px';
-        let left = 260+300*(i-1);
-        btnEdit.style.left = card.style.left + left+'px';
         i+=1;
   
         card.appendChild(h1);
