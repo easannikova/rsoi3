@@ -6,6 +6,7 @@ function buttonVisibility()
   btn.style.display = 'none';
 }
 
+
 function SaveMovie()
 {
   let app = document.getElementById('root');
@@ -154,7 +155,7 @@ function PutSeanseForm()
   btnSeanses();
 }
 
-function btnSave()
+function btnSve()
 {
   for (i=0; i < app.childElementCount; i++)
   {

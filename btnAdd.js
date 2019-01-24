@@ -77,6 +77,10 @@ function AddMovieForm(myh1)
   btn.style.display = 'none';
   let btnOK = document.getElementById('btnOK');
   btn.style.display = 'inline-block';
+  let btnDelete = document.getElementById('btnDelete');
+  btnDelete.style.display = 'none';
+  let btnSave = document.getElementById('btnSave');
+  btnSave.style.display = 'none';
 }
 
 function AddHallForm()
@@ -129,6 +133,10 @@ function AddHallForm()
   btn.style.display = 'none';
   let btnOK = document.getElementById('btnOK');
   btn.style.display = 'inline-block';
+  let btnDelete = document.getElementById('btnDelete');
+  btnDelete.style.display = 'none';
+  let btnSave = document.getElementById('btnSave');
+  btnSave.style.display = 'none';
 }
 
 function AddSeanseForm()
@@ -183,6 +191,10 @@ function AddSeanseForm()
   btn.style.display = 'none';
   let btnOK = document.getElementById('btnAdd');
   btn.style.display = 'inline-block';
+  let btnDelete = document.getElementById('btnDelete');
+  btnDelete.style.display = 'none';
+  let btnSave = document.getElementById('btnSave');
+  btnSave.style.display = 'none';
 }
 
 

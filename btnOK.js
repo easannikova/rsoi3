@@ -76,15 +76,16 @@ function ValidateHallForm()
     }
   }
 
-  let year = parseInt(row[1], 10);
+  let year = parseInt(row[0], 10);
   let err_year = "Error! Inccorect value of number";
-  let rating = parseInt(row[2], 10);
+  let rating = parseInt(row[1], 10);
   let err_rating = "Error! Inccorect value of floor";
-  let FC = parseInt(row[3], 10);
+  let FC = parseInt(row[2], 10);
   let err_FC = "Error! Inccorect value of seats count";
-  let is3d = parseInt(row[4], 10);
+  let is3d = parseInt(row[3], 10);
   let err_3d = "Error! Inccorect value of 3D parametre";
   let err = "";
+  console.log("3dddddddddd",is3d);
   
   if (year <=0 || year == undefined)
     err = err_year;
@@ -94,7 +95,8 @@ function ValidateHallForm()
 
   if (rating < 0 || rating == undefined)
     err = err_rating;
-  if ((is3d != false && is3d != true) || is3d == undefined)
+  console.log("3dddddddddd",is3d);
+  if ((is3d != 'false' && is3d != 'False' ) || (is3d != 'true' && is3d != 'True') || is3d == undefined)
     err = err_3d;
 
   if (err != "")
@@ -128,13 +130,14 @@ function ValidateHallForm()
     }
   }
 
-  let year = parseInt(row[1], 10);
+  console.log("row", row);
+  let year = parseInt(row[0], 10);
   let err_year = "Error! Inccorect value of number";
-  let rating = parseInt(row[2], 10);
+  let rating = parseInt(row[1], 10);
   let err_rating = "Error! Inccorect value of floor";
   let FC = parseInt(row[3], 10);
   let err_FC = "Error! Inccorect value of seats count";
-  let is3d = parseInt(row[4], 10);
+  let is3d = row[2]
   let err_3d = "Error! Inccorect value of 3D parametre";
   let err = "";
   
@@ -147,8 +150,9 @@ function ValidateHallForm()
 
   if (rating < 0 || rating == undefined)
     err = err_rating;
-  if ((is3d != false && is3d != true) || is3d == undefined)
-    err = err_3d;
+    console.log("3dddddddddd",is3d, year, rating, FC);
+  if ((is3d != 'false' && is3d != 'true') || is3d == undefined)
+      err = err_3d;
 
   if (err != "")
   {
@@ -258,7 +262,7 @@ function PutMovieForm()
   request.open('POST', 'http://localhost:5000/api/1.0/movies', true);
   request.setRequestHeader("Content-Type", "application/json");
 
-  data = JSON.stringify({'id': 4, 'title': row[0], 'country': row[1], 'year': row[2],
+  data = JSON.stringify({'id': 100, 'title': row[0], 'country': row[1], 'year': row[2],
                               'FC': row[3], 'rating': row[4], 'genre': row[5]});
   request.send(data);
 
@@ -302,7 +306,7 @@ function PutHallForm()
   request.open('POST', 'http://localhost:5001/api/1.0/halls', true);
   request.setRequestHeader("Content-Type", "application/json");
 
-  data = JSON.stringify({'id': 4, 'number': row[0], 'floor': row[1], 'is3d': row[2],
+  data = JSON.stringify({'id': '100', 'number': row[0], 'floor': row[1], 'is3d': row[2],
                               'seats_count': row[3]});
   request.send(data);
 
@@ -346,7 +350,7 @@ function PutSeanseForm()
   request.open('POST', 'http://localhost:5002/api/1.0/seanses', true);
   request.setRequestHeader("Content-Type", "application/json");
 
-  data = JSON.stringify({'id': 6, 'hall_number': row[1], 'movie_title': row[0], 'data': row[2],
+  data = JSON.stringify({'id': 100, 'hall_number': row[1], 'movie_title': row[0], 'data': row[2],
                               'time': row[3]});
   request.send(data);
 
