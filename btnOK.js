@@ -212,7 +212,7 @@ function ValidateSeanseForm()
   return true;
 }
 
-function PutMovieForm()
+function PostMovieForm()
 {
   let app = document.getElementById('root');
   let row = [];
@@ -269,7 +269,7 @@ function PutMovieForm()
   btnMovies();
 }
 
-function PutHallForm()
+function PostHallForm()
 {
   let app = document.getElementById('root');
   let row = [];
@@ -306,14 +306,14 @@ function PutHallForm()
   request.open('POST', 'http://localhost:5001/api/1.0/halls', true);
   request.setRequestHeader("Content-Type", "application/json");
 
-  data = JSON.stringify({'id': '100', 'number': row[0], 'floor': row[1], 'is3d': row[2],
+  data = JSON.stringify({ 'number': row[0], 'floor': row[1], 'is3d': row[2],
                               'seats_count': row[3]});
   request.send(data);
 
   btnHalls();
 }
 
-function PutSeanseForm()
+function PostSeanseForm()
 {
   let app = document.getElementById('root');
   let row = [];
@@ -374,17 +374,17 @@ function btnOK()
       url = 'http://localhost:5000/api/1.0/movies';
       res = ValidateMovieForm();
       if (res)
-        PutMovieForm();
+        PostMovieForm();
       break;
     case 'halls':
       url = 'http://localhost:5001/api/1.0/halls';      
       res = ValidateHallForm();
       if (res)
-        PutHallForm();
+        PostHallForm();
       break;
     case 'seanses':
       url = 'http://localhost:5002/api/1.0/seanses';
-      PutSeanseForm();
+      PostSeanseForm();
       break;
   }
   buttonVisibility();

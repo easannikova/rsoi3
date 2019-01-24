@@ -6,151 +6,88 @@ function buttonVisibility()
   btn.style.display = 'none';
 }
 
-
-function SaveMovie()
+let id;
+function SaveValues()
 {
   let app = document.getElementById('root');
+
   let row = [];
+  id = app.getAttribute('data-id');
+  console.log(id);
 
   for (i=0; i < app.childElementCount; i++)
   {
     let card = app.childNodes[i];
 
     let params = card.childNodes;
+    console.log(params);
     let j = 0;
     for (i=0; i < card.childElementCount; i++)
     {
-      let value = params[i].value;
-      if(value != undefined) //params[i].textContent;
-      {
-        row[j] = value;
-        j++;
+      if (params[i].tagName == 'INPUT')
+      {  
+        console.log("dsfwravfv");
+        let value = params[i].value;
+        if(value != undefined) //params[i].textContent;
+        {
+          row[j] = value;
+          j++;
+        }
       }
     }
   }
-  //alert("sdf");
-  /*let app = document.getElementById('root');
-
-  let text;
-  for (i=0; i < app.childElementCount; i++)
-  {
-    text = app.childNodes[i].textContent;
-
-    if (text != 'movies' && text != 'halls' && text != 'seanses')
-      app.childNodes[i].remove();
-    else
-      app.childNodes[i].textContent = 'movies';
-  }
-
-  var request_get = new XMLHttpRequest();
-  let data;
-  request_get.open('GET', 'http://localhost:5000/api/1.0/movies', true);
-  request_get.onload = function () {
-
-    // Begin accessing JSON data here
-    var data = JSON.parse(this.response);
-    data = data['movies'];
-    console.log('l'+data['length']);
-    length = Object.assign(length, data['length']);
-    text = data['length']
-  }
-  request_get.send();
-
-  var request = new XMLHttpRequest();
-  request.open('POST', 'http://localhost:5000/api/1.0/movies', true);
-  request.setRequestHeader("Content-Type", "application/json");
-
-  data = JSON.stringify({'id': 4, 'title': row[0], 'country': row[1], 'year': row[2],
-                              'FC': row[3], 'rating': row[4], 'genre': row[5]});
-  request.send(data);
-
-  btnMovies();*/
+  console.log(row);
+  return row;
 }
 
-function PutHallForm()
+function PutMovieForm(url, row)
 {
   let app = document.getElementById('root');
-  let row = [];
 
-  for (i=0; i < app.childElementCount; i++)
-  {
-    let id = app.childNodes[i].id;
-    let card = app.childNodes[i];
-
-    let params = card.childNodes;
-    let j = 0;
-    for (i=0; i < card.childElementCount; i++)
-    {
-      let value = params[i].value;
-      if(value != undefined) //params[i].textContent;
-      {
-        row[j] = value;
-        j++;
-      }
-    }
-  }
-
-  for (i=0; i < app.childElementCount; i++)
-  {
-    text = app.childNodes[i].textContent;
-
-    if (text != 'movies' && text != 'halls' && text != 'seanses')
-      app.childNodes[i].remove();
-    else
-    app.childNodes[i].textContent = 'halls';
-  }
 
   var request = new XMLHttpRequest();
-  request.open('POST', 'http://localhost:5001/api/1.0/halls', true);
+  request.open('PUT', url, true);
   request.setRequestHeader("Content-Type", "application/json");
 
-  data = JSON.stringify({'id': 4, 'number': row[0], 'floor': row[1], 'is3d': row[2],
-                              'seats_count': row[3]});
-  request.send(data);
+  data1 = JSON.stringify({'title': row[0]});
+  request.send(data1);
+
+  btnMvoies();
+}
+
+function PutHallForm(url, row)
+{
+  let app = document.getElementById('root');
+
+  var request = new XMLHttpRequest();
+  request.open('PUT', url, true);
+  request.setRequestHeader("Content-Type", "application/json");
+
+  data2 = JSON.stringify({'number': row[0]});
+  console.log(data2);
+  console.log(row[0]);
+  request.send(data2);
 
   btnHalls();
 }
 
-function PutSeanseForm()
+function PutSeanseForm(url, row)
 {
   let app = document.getElementById('root');
-  let row = [];
-
-  for (i=0; i < app.childElementCount; i++)
-  {
-    let id = app.childNodes[i].id;
-    let card = app.childNodes[i];
-
-    let params = card.childNodes;
-    let j = 0;
-    for (i=0; i < card.childElementCount; i++)
-    {
-      let value = params[i].value;
-      if(value != undefined) //params[i].textContent;
-      {
-        row[j] = value;
-        j++;
-      }
-    }
-  }
-
-  for (i=0; i < app.childElementCount; i++)
-  {
-    text = app.childNodes[i].textContent;
-
-    if (text != 'movies' && text != 'halls' && text != 'seanses')
-      app.childNodes[i].remove();
-    else
-    app.childNodes[i].textContent = 'seanses';
-  }
-
+  
   var request = new XMLHttpRequest();
-  request.open('POST', 'http://localhost:5002/api/1.0/seanses', true);
+  request.open('PUT', url, true);
   request.setRequestHeader("Content-Type", "application/json");
 
-  data = JSON.stringify({'id': 6, 'hall_number': row[1], 'movie_title': row[0], 'data': row[2],
-                              'time': row[3]});
+  data3 = JSON.stringify({'value': row[0], 'object': 'movie_title'} );
   request.send(data);
+
+  var request = new XMLHttpRequest();
+  request.open('PUT', url, true);
+  request.setRequestHeader("Content-Type", "application/json");
+
+  data3 = JSON.stringify({'value': row[1], 'object': 'hall_number'});
+  request.send(data3);
 
   btnSeanses();
 }
@@ -166,23 +103,26 @@ function btnSve()
     
   }
   
+  let row = SaveValues();
+  console.log(row);
+
   switch (page)
   {
     case 'movies':
-      url = 'http://localhost:5000/api/1.0/movies';
-      res = ValidateMovieForm();
-      if (res)
-        PutMovieForm();
+      url = 'http://localhost:5000/api/1.0/movies/'+id;
+      PutMovieForm(url, row);
+      //res = ValidateMovieForm();
+      //if (res)
+        //PutMovieForm();
+      
       break;
     case 'halls':
-      url = 'http://localhost:5001/api/1.0/halls';      
-      res = ValidateHallForm();
-      if (res)
-        PutHallForm();
+      url = 'http://localhost:5001/api/1.0/halls/'+id;      
+      PutHallForm(url, row);
       break;
     case 'seanses':
-      url = 'http://localhost:5002/api/1.0/seanses';
-      PutSeanseForm();
+      url = 'http://localhost:5002/api/1.0/seanses/'+id;
+      PutSeanseForm(url, row);
       break;
   }
   buttonVisibility();

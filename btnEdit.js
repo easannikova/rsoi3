@@ -73,13 +73,105 @@ function fillFields(url, el)
   }
 }
 
+function EditMovieForm()
+{
+  let card = document.createElement('div');
+      card.setAttribute('class', 'card');
+      card.setAttribute('id', 'card');
+
+      /*var request = new XMLHttpRequest();
+
+request.open('GET', 'http://localhost:5000/api/1.0/movies', true);
+request.onload = function () {*/
+
+      let h1 = document.createElement('h1');
+      h1.textContent = "Movie: ";
+
+      let p1 = document.createElement('p');
+      p1.textContent = 'Title: ';
+
+      let title = document.createElement('input');
+      title.style.left = 200 + 'px';
+      title.style.top = 170 + 'px';
+      title.style.position = 'fixed';
+      card.appendChild(h1);
+      card.appendChild(p1);
+      card.appendChild(title);
+      app.appendChild(card);
+}
+
+function EditHallForm()
+{
+  let card = document.createElement('div');
+      card.setAttribute('class', 'card');
+      card.setAttribute('id', 'card');
+
+      /*var request = new XMLHttpRequest();
+
+request.open('GET', 'http://localhost:5000/api/1.0/movies', true);
+request.onload = function () {*/
+
+      let h1 = document.createElement('h1');
+      h1.textContent = "Hall: ";
+
+      let p1 = document.createElement('p');
+      p1.textContent = 'Number: ';
+
+      let number = document.createElement('input');
+      number.style.left = 200 + 'px';
+      number.style.top = 170 + 'px';
+      number.style.position = 'fixed';
+      card.appendChild(h1);
+      card.appendChild(p1);
+      card.appendChild(number);
+      app.appendChild(card);
+}
+
+function EditSeanseForm()
+{
+  let card = document.createElement('div');
+      card.setAttribute('class', 'card');
+      card.setAttribute('id', 'card');
+      console.log(app.getAttribute("data-id"));
+      /*var request = new XMLHttpRequest();
+
+request.open('GET', 'http://localhost:5000/api/1.0/movies', true);
+request.onload = function () {*/
+
+      let h1 = document.createElement('h1');
+      h1.textContent = "Seanse: ";
+
+      let p1 = document.createElement('p');
+      p1.textContent = 'Hall number: ';
+      let p2 = document.createElement('p');
+      p2.textContent = 'Movie title: ';
+
+      let movie_title = document.createElement('input');
+      movie_title.style.left = 200 + 'px';
+      movie_title.style.top = 170 + 'px';
+      movie_title.style.position = 'fixed';
+      let hall_number = document.createElement('input');
+      hall_number.style.left = 200 + 'px';
+      hall_number.style.top = 230 + 'px';
+      hall_number.style.position = 'fixed';
+      card.appendChild(h1);
+      card.appendChild(p1);
+      card.appendChild(p2);
+
+      card.appendChild(movie_title);
+      card.appendChild(hall_number);
+
+      app.appendChild(card);
+}
+
+
 function EditMovie()
 {
   console.log("delete");
   deleteForm();
   url = 'http://localhost:5000/api/1.0/movies'+"/";
   fillFields(url, 'movie');
-  AddMovieForm();
+  EditMovieForm();
   buttonVisibleSD();
 }
 
@@ -89,7 +181,7 @@ function EditHall()
   deleteForm();
   url = 'http://localhost:5001/api/1.0/halls'+"/";
   fillFields(url, 'hall');
-  AddHallForm();
+  EditHallForm();
   buttonVisibleSD();
 }
 
@@ -99,7 +191,7 @@ function EditSeanse()
   deleteForm();
   url = 'http://localhost:5002/api/1.0/seanses'+"/";
   fillFields(url, 'seanse');
-  AddSeanseForm();
+  EditSeanseForm();
   buttonVisibleSD();
 }
 

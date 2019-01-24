@@ -57,7 +57,7 @@ request.onload = function () {
       btnEdit.setAttribute('id', 'btnEdit'+i.toString());
       btnEdit.setAttribute('onclick', 'EditMovie()');
       btnEdit.innerHTML = 'Edit';
-      app.setAttribute('data-id', i);
+      app.setAttribute('data-id', movie.id);
       // btnEdit.style.top = card.style.top + 350+'px';
       //let left = 200+240*(i-1);
       // btnEdit.style.left = card.style.left + left+'px';

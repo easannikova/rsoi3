@@ -52,7 +52,7 @@ function btnHalls()
         btnEdit.setAttribute('class', 'btnEdit');
         btnEdit.setAttribute('id', 'btnEdit'+i.toString());
         btnEdit.setAttribute('onclick', 'EditHall()');
-        app.setAttribute('data-id', i);
+        app.setAttribute('data-id', hall.id);
 
         btnEdit.innerHTML = 'Edit';
         i+=1;
